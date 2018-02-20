@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
 
 	public float speed = 1f;
 	Animator anim;
+	bool enMovimiento = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -15,21 +17,54 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 mov = new Vector3 (
-			Input.GetAxisRaw ("Horizontal"),
-			Input.GetAxisRaw ("Vertical"),
-			0		
-		);
+		if(!enMovimiento){
+			if (Input.GetKey ("up") && !enMovimiento) {
+				anim.SetBool ("movTop", true);
+				enMovimiento = true;
+				transform.position = new Vector3 (
+					transform.position.x, 
+					transform.position.y + speed * Time.deltaTime, 
+					transform.position.z);
+			} else {
+				anim.SetBool ("movTop", false);
+			}
 
-		transform.position = Vector3.MoveTowards (
-			transform.position,
-			transform.position + mov,
-			speed + Time.deltaTime
-		);
+			if(Input.GetKey("down") && !enMovimiento){
+				anim.SetBool ("movBot", true);
+				enMovimiento = true;
+				transform.position = new Vector3 (
+					transform.position.x, 
+					transform.position.y - speed * Time.deltaTime, 
+					transform.position.z);
+			}else {
+				anim.SetBool ("movBot", false);
+			}
 
-		anim.SetFloat ("MovX", mov.x);
-		anim.SetFloat ("MovY", mov.y);
-		
+			if(Input.GetKey("right") && !enMovimiento){
+				anim.SetBool ("movRight", true);
+				enMovimiento = true;
+				transform.position = new Vector3 (
+					transform.position.x + speed * Time.deltaTime, 
+					transform.position.y, 
+					transform.position.z);
+			}else {
+				anim.SetBool ("movRight", false);
+			}
+
+			if(Input.GetKey("left") && !enMovimiento){
+				anim.SetBool ("movLeft", true);
+				enMovimiento = true;
+				transform.position = new Vector3 (
+					transform.position.x - speed * Time.deltaTime, 
+					transform.position.y, 
+					transform.position.z);
+			}else {
+				anim.SetBool ("movLeft", false);
+			}
+
+		}else{
+			enMovimiento = false;
+		}				
 	}
 }
 

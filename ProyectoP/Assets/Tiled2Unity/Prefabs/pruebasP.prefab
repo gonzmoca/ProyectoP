@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4951463961612518}
   - component: {fileID: 114750189475334250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: suelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33347458061075980}
   - component: {fileID: 23016314806717736}
   - component: {fileID: 114190951375404960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Overworld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4444118215956224}
   - component: {fileID: 114785290204462366}
   - component: {fileID: 68329033907669580}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PolylineObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4639397373990302}
   - component: {fileID: 114689458851024100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: colisiones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 33366766933121286}
   - component: {fileID: 23387957722444054}
   - component: {fileID: 114971490064672368}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Overworld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4136778968894374}
   - component: {fileID: 114539961962843388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: piedras y troncos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,9 +121,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4928285959163104}
   - component: {fileID: 114245004028258444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pruebasP
-  m_TagString: Untagged
+  m_TagString: Terreno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4928941371138840}
   - component: {fileID: 114688763231339898}
   - component: {fileID: 68849389755583334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PolylineObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4100585106906388}
   - component: {fileID: 114666344591267728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: arboles y agua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 33443089217114068}
   - component: {fileID: 23821915332855066}
   - component: {fileID: 114178646961403100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Overworld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
