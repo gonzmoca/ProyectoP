@@ -6,65 +6,65 @@ public class Player : MonoBehaviour {
 
 	public float speed = 1f;
 	Animator anim;
-	bool enMovimiento = false;
+	//bool enMovimiento = false;
+	Rigidbody2D rigit;
+	Vector2 mov;
 
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		rigit = GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if(!enMovimiento){
-			if (Input.GetKey ("up") && !enMovimiento) {
-				anim.SetBool ("movTop", true);
-				enMovimiento = true;
-				transform.position = new Vector3 (
-					transform.position.x, 
-					transform.position.y + speed * Time.deltaTime, 
-					transform.position.z);
-			} else {
-				anim.SetBool ("movTop", false);
+		if (Input.GetKey (KeyCode.Alpha1)) {
+			anim.SetBool ("atack", true);
+		} else {
+			anim.SetBool ("atack", false);
+		}
+
+		mov = new Vector2 (
+			Input.GetAxisRaw("Horizontal"),
+			Input.GetAxisRaw("Vertical")
+		);
+
+		if (mov != Vector2.zero) {
+			anim.SetBool ("Walk", true);
+			//Restruccion a sin diagonales
+			if (Input.GetAxisRaw ("Horizontal") != 0) {
+				mov = new Vector2 (
+					Input.GetAxisRaw ("Horizontal"),
+					0
+				);
+			} else if (Input.GetAxisRaw ("Vertical") != 0) {
+				mov = new Vector2 (
+					0,
+					Input.GetAxisRaw ("Vertical")
+				);
 			}
 
-			if(Input.GetKey("down") && !enMovimiento){
-				anim.SetBool ("movBot", true);
-				enMovimiento = true;
-				transform.position = new Vector3 (
-					transform.position.x, 
-					transform.position.y - speed * Time.deltaTime, 
-					transform.position.z);
-			}else {
-				anim.SetBool ("movBot", false);
-			}
+			//Movimiento con diagonales
+			/*mov = new Vector2 (
+				Input.GetAxisRaw("Horizontal"),
+				Input.GetAxisRaw("Vertical")
+			);*/
+			anim.SetFloat ("movX", mov.x);
+			anim.SetFloat ("movY", mov.y);
+		} else {
+			anim.SetBool ("Walk", false);
+		}
 
-			if(Input.GetKey("right") && !enMovimiento){
-				anim.SetBool ("movRight", true);
-				enMovimiento = true;
-				transform.position = new Vector3 (
-					transform.position.x + speed * Time.deltaTime, 
-					transform.position.y, 
-					transform.position.z);
-			}else {
-				anim.SetBool ("movRight", false);
-			}
 
-			if(Input.GetKey("left") && !enMovimiento){
-				anim.SetBool ("movLeft", true);
-				enMovimiento = true;
-				transform.position = new Vector3 (
-					transform.position.x - speed * Time.deltaTime, 
-					transform.position.y, 
-					transform.position.z);
-			}else {
-				anim.SetBool ("movLeft", false);
-			}
 
-		}else{
-			enMovimiento = false;
-		}				
+	}
+
+
+	void FixedUpdate (){
+		
+		rigit.MovePosition (rigit.position + mov * speed * Time.deltaTime);
 	}
 }
 
